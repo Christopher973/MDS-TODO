@@ -10,6 +10,7 @@
 import { Set, Router, Route } from '@redwoodjs/router'
 
 import ScaffoldLayout from 'src/layouts/ScaffoldLayout'
+import AppLayout from 'src/layouts/AppLayout/AppLayout'
 
 import { useAuth } from './auth'
 
@@ -19,15 +20,19 @@ import UsersPage from 'src/pages/User/UsersPage/UsersPage'
 const Routes = () => {
   return (
     <Router>
-      <Route path="/user" page={UserPage} name="user" />
-      <Route path="/users" page={UsersPage} name="users" />
+      <Set wrap={AppLayout}>
+        <Route path="/" page={HomePage} name="home" />
 
-      <Route path="/login" page={LoginPage} name="login" />
-      <Route path="/signup" page={SignupPage} name="signup" />
-      <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
-      <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
+        <Route path="/user" page={UserPage} name="user" />
+        <Route path="/users" page={UsersPage} name="users" />
 
-      <Route path="/" page={HomePage} name="home" />
+        <Route path="/login" page={LoginPage} name="login" />
+        <Route path="/signup" page={SignupPage} name="signup" />
+        <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
+        <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
+      </Set>
+
+
 
       <Set wrap={ScaffoldLayout} title="Projects" titleTo="adminProjects" buttonLabel="New Project" buttonTo="adminNewProject">
         <Route path="/admin/projects/new" page={AdminProjectNewProjectPage} name="adminNewProject" />
