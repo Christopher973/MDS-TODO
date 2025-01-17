@@ -1,44 +1,53 @@
 export default () => (
-  <main>
-    <style
-      dangerouslySetInnerHTML={{
-        __html: `
-              html, body {
-                margin: 0;
-              }
-              html * {
-                box-sizing: border-box;
-              }
-              main {
-                display: flex;
-                align-items: center;
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-                text-align: center;
-                background-color: #E2E8F0;
-                height: 100vh;
-              }
-              section {
-                background-color: white;
-                border-radius: 0.25rem;
-                width: 32rem;
-                padding: 1rem;
-                margin: 0 auto;
-                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-              }
-              h1 {
-                font-size: 2rem;
-                margin: 0;
-                font-weight: 500;
-                line-height: 1;
-                color: #2D3748;
-              }
-            `,
-      }}
-    />
-    <section>
-      <h1>
-        <span>404 Page Not Found</span>
-      </h1>
-    </section>
-  </main>
+  <div className="mx-auto flex size-full max-w-[50rem] flex-col">
+    <header className="z-50 mb-auto flex w-full justify-center py-4">
+      <nav className="px-4 sm:px-6 lg:px-8">
+        <a
+          className="flex-none text-xl font-semibold sm:text-3xl"
+          href="#"
+          aria-label="Brand"
+        >
+          Brand
+        </a>
+      </nav>
+    </header>
+
+    <main id="content">
+      <div className="px-4 py-10 text-center sm:px-6 lg:px-8">
+        <h1 className="block text-7xl font-bold text-gray-800 sm:text-9xl">
+          404
+        </h1>
+        <p className="mt-3 text-gray-600">Oops, something went wrong.</p>
+        <p className="text-gray-600">Sorry, we couldn't find your page.</p>
+        <div className="mt-5 flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-3">
+          <a
+            className="inline-flex w-full items-center justify-center gap-x-2 rounded-lg border border-transparent bg-blue-600 px-4 py-3 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50 sm:w-auto"
+            href="../examples.html"
+          >
+            <svg
+              className="size-4 shrink-0"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="m15 18-6-6 6-6" />
+            </svg>
+            Back to examples
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer className="mt-auto py-5 text-center">
+      <div className="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8">
+        <p className="text-sm text-gray-500">© All Rights Reserved. 2022.</p>
+      </div>
+    </footer>
+  </div>
 )

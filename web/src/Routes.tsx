@@ -18,6 +18,7 @@ import { useAuth } from './auth'
 const Routes = () => {
   return (
     <Router>
+      <Route path="/profile" page={ProfilePage} name="profile" />
       <Set wrap={AppLayout}>
         <Route path="/" page={HomePage} name="home" />
 
