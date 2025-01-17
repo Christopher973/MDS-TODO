@@ -14,17 +14,12 @@ import AppLayout from 'src/layouts/AppLayout/AppLayout'
 
 import { useAuth } from './auth'
 
-import UserPage from 'src/pages/User/UserPage/UserPage'
-import UsersPage from 'src/pages/User/UsersPage/UsersPage'
 
 const Routes = () => {
   return (
     <Router>
       <Set wrap={AppLayout}>
         <Route path="/" page={HomePage} name="home" />
-
-        <Route path="/user" page={UserPage} name="user" />
-        <Route path="/users" page={UsersPage} name="users" />
 
         <Route path="/login" page={LoginPage} name="login" />
         <Route path="/signup" page={SignupPage} name="signup" />
