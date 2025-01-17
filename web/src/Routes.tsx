@@ -13,32 +13,43 @@ import ScaffoldLayout from 'src/layouts/ScaffoldLayout'
 
 import { useAuth } from './auth'
 
+import UserPage from 'src/pages/User/UserPage/UserPage'
+import UsersPage from 'src/pages/User/UsersPage/UsersPage'
+
 const Routes = () => {
   return (
     <Router>
+      <Route path="/user" page={UserPage} name="user" />
+      <Route path="/users" page={UsersPage} name="users" />
+
       <Route path="/login" page={LoginPage} name="login" />
       <Route path="/signup" page={SignupPage} name="signup" />
       <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
       <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
+
       <Route path="/" page={HomePage} name="home" />
+
       <Set wrap={ScaffoldLayout} title="Projects" titleTo="adminProjects" buttonLabel="New Project" buttonTo="adminNewProject">
         <Route path="/admin/projects/new" page={AdminProjectNewProjectPage} name="adminNewProject" />
         <Route path="/admin/projects/{id:Int}/edit" page={AdminProjectEditProjectPage} name="adminEditProject" />
         <Route path="/admin/projects/{id:Int}" page={AdminProjectProjectPage} name="adminProject" />
         <Route path="/admin/projects" page={AdminProjectProjectsPage} name="adminProjects" />
       </Set>
+
       <Set wrap={ScaffoldLayout} title="Tasks" titleTo="adminTasks" buttonLabel="New Task" buttonTo="adminNewTask">
         <Route path="/admin/tasks/new" page={AdminTaskNewTaskPage} name="adminNewTask" />
         <Route path="/admin/tasks/{id:Int}/edit" page={AdminTaskEditTaskPage} name="adminEditTask" />
         <Route path="/admin/tasks/{id:Int}" page={AdminTaskTaskPage} name="adminTask" />
         <Route path="/admin/tasks" page={AdminTaskTasksPage} name="adminTasks" />
       </Set>
+
       <Set wrap={ScaffoldLayout} title="Users" titleTo="adminUsers" buttonLabel="New User" buttonTo="adminNewUser">
         <Route path="/admin/users/new" page={AdminUserNewUserPage} name="adminNewUser" />
         <Route path="/admin/users/{id:Int}/edit" page={AdminUserEditUserPage} name="adminEditUser" />
         <Route path="/admin/users/{id:Int}" page={AdminUserUserPage} name="adminUser" />
         <Route path="/admin/users" page={AdminUserUsersPage} name="adminUsers" />
       </Set>
+
       <Route notfound page={NotFoundPage} />
     </Router>
   )
